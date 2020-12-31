@@ -5,5 +5,7 @@ const Generic = () => {
         <div>
             <h1>The Generic Template</h1>
         </div>
-    )
+    );
 }
+
+export default Generic;
