@@ -1,7 +1,7 @@
 // for custom and bringing in your own data
 // need modules from Node
 const path = require('path');
-const data = require('./data/pageData');
+const data = require('./src/data/pageData');
 
 exports.createPages = ({ actions }) => {
     const { createPage } = actions;
