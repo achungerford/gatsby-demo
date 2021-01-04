@@ -3,7 +3,7 @@
 const path = require('path');
 const data = require('./src/data/pageData');
 
-exports.createPages = ({ actions }) => {
+exports.createPages = async ({ actions, graphql }) => {
     const { createPage } = actions;
 
     data.forEach(page => {
@@ -16,4 +16,20 @@ exports.createPages = ({ actions }) => {
             }
         })
     })
+
+    const mdPages = await graphql(`
+        query MyQuery {
+            allMarkdownRemark {
+                edges {
+                    node {
+                        frontmatter {
+                            slug
+                        }
+                    }
+                }
+            }
+        }
+    `)
+
+    console.log(mdPages);
 }
